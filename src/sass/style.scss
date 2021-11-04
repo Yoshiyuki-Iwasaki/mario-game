@@ -1,23 +1,44 @@
 @import "base/variable";
 @import "base/reset";
 @import "base/font";
-@import "mixin/fontFeature";
-@import "mixin/fontSmoothing";
-@import "mixin/u-articleText";
-@import "mixin/u-contentCenter";
-@import "mixin/u-hover";
-@import "mixin/u-mediaQuery";
-@import "mixin/u-trs";
-@import "mixin/u-bnt";
-@import "mixin/u-flex";
-@import "mixin/u-animation";
-@import "mixin/u-arrow";
-@import "mixin/u-imgText";
-@import "mixin/u-icon";
-@import "mixin/u-lowerHeaderKv";
-@import "mixin/u-pixAnimation";
 @import "base/common";
-@import "modules/breadArea";
-@import "modules/header";
-@import "modules/footer";
-@import "page/topPage";
+
+#game {
+  width: 500px;
+  height: 200px;
+  border: 1px solid $black;
+}
+
+#character {
+  width: 20px;
+  height: 50px;
+  background: $red01;
+  position: relative;
+  top: 150px;
+}
+
+.animate {
+  animation: jump 500ms;
+}
+
+@keyframes jump {
+  0%{top:150px}
+  30%{top:100px}
+  70%{top:100px}
+  100%{top:150px}
+}
+
+#block {
+  width: 20px;
+  height: 20px;
+  background: $blue01;
+  position: relative;
+  top: 130px;
+  left: 480px;
+  animation: block 1s infinite;
+}
+
+@keyframes block {
+  0%{left:480px}
+  100%{left:-40px}
+}
