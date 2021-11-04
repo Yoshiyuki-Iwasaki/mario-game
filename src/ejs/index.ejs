@@ -7,11 +7,14 @@ keywords: 'キーワード' , url: 'http://localhost:8080/', pageName: 'top', pa
   <%- include('./_inc/head', {baseMeta: baseMeta}); %>
 
   <body>
-    <main role="main">
-      <div id="game">
-        <div id="character"></div>
-        <div id="block"></div>
+    <main id="main" role="main">
+      <div id="inner">
+        <div id="game">
+          <div id="character"></div>
+          <div id="block"></div>
+        </div>
       </div>
+      <div id="score">0</div>
     </main>
     <%- include('./_inc/footer', {baseMeta: baseMeta}); %>
   </body>
