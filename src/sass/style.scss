@@ -1,12 +1,18 @@
 @import "base/variable";
 @import "base/reset";
-@import "base/font";
-@import "base/common";
 
-#game {
+#main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#inner {
   width: 500px;
   height: 200px;
-  border: 1px solid $black;
+  border: 1px solid #2e2d2c;
+  overflow: hidden;
 }
 
 #character {
@@ -15,6 +21,10 @@
   background: $red01;
   position: relative;
   top: 150px;
+}
+
+#game {
+  height: 200px;
 }
 
 .animate {
@@ -41,4 +51,10 @@
 @keyframes block {
   0%{left:480px}
   100%{left:-40px}
+}
+
+#score {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 22px;
 }

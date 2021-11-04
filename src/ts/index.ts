@@ -9,6 +9,7 @@ const enum EventName {
 
 const character: any = document.getElementById("character");
 const block: any = document.getElementById("block");
+const score: any = document.getElementById("score");
 
 window.addEventListener(EventName.CLICK, () => jump());
 
@@ -22,6 +23,7 @@ const jump = () => {
 }
 
 const checkDead = setInterval(() => {
+  score.innerText++;
   const characterTop = parseInt(window.getComputedStyle(character).getPropertyValue('top'));
   const blockLeft = parseInt(
     window.getComputedStyle(block).getPropertyValue("left")
@@ -29,6 +31,7 @@ const checkDead = setInterval(() => {
   if (blockLeft < 20 && blockLeft > 0 && characterTop >= 130) {
     block.style.animation = "none";
     block.style.display = "none";
-    alert('you lose.');
+    alert("Your score is " + score.innerText);
+    location.reload();
   }
 },10)
