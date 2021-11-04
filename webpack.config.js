@@ -11,7 +11,7 @@ module.exports = {
   },
 
   // メインとなるJavaScriptファイル（エントリーポイント）
-  entry: [`./src/ts/index.ts`, `./src/js/index.js`],
+  entry: [`./src/ts/index.ts`],
 
   // babel
   module: {

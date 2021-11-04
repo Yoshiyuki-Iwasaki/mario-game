@@ -31,10 +31,10 @@ const CONF = {
     SOURCE: "./src/image/*",
     OUTPUT: "./dist/assets/image",
   },
-  LIB: {
-    SOURCE: ["./src/js/lib/*.js", "./src/js/lib/*.css"],
-    OUTPUT: "./dist/assets/js/lib",
-  },
+  // LIB: {
+  //   SOURCE: ["./src/js/lib/*.js", "./src/js/lib/*.css"],
+  //   OUTPUT: "./dist/assets/js/lib",
+  // },
   BROWSERSYNC: {
     DOCUMENT_ROOT: "./dist",
     INDEX: "index.html",
@@ -109,11 +109,11 @@ const bundleTs = () => {
 //     .pipe(dest(CONF.JS.OUTPUT)); //指定のディレクトリに移動させる
 // };
 
-const LibFunc = () => {
-  // gulp image で実行するタスク
-  return src(CONF.LIB.SOURCE) //結果をwatchへ返却する
-    .pipe(dest(CONF.LIB.OUTPUT)); //指定のディレクトリに移動させる
-};
+// const LibFunc = () => {
+//   // gulp image で実行するタスク
+//   return src(CONF.LIB.SOURCE) //結果をwatchへ返却する
+//     .pipe(dest(CONF.LIB.OUTPUT)); //指定のディレクトリに移動させる
+// };
 
 const imageFunc = () => {
   // gulp image で実行するタスク
@@ -126,7 +126,7 @@ const watchFiles = () => {
   watch(CONF.EJS.SOURCE, series(compileEjs, browserReload));
   watch(CONF.SASS.SOURCE, series(compileSass, browserReload));
   watch(CONF.IMAGE.SOURCE, series(imageFunc, browserReload));
-  watch(CONF.LIB.SOURCE, series(LibFunc, browserReload));
+  // watch(CONF.LIB.SOURCE, series(LibFunc, browserReload));
   watch(CONF.TS.SOURCE, series(bundleTs, browserReload));
   // watch(CONF.JS.SOURCE, series(bundleJs, browserReload));
 };
@@ -134,11 +134,12 @@ const watchFiles = () => {
 exports.compileEjs = compileEjs;
 exports.compileSass = compileSass;
 exports.imageFunc = imageFunc;
-exports.LibFunc = LibFunc;
+// exports.LibFunc = LibFunc;
 exports.bundleTs = bundleTs;
 // exports.bundleJs = bundleJs;
 
 exports.default = series(
-  parallel(compileEjs, compileSass, LibFunc, imageFunc, bundleTs),
+  // parallel(compileEjs, compileSass, LibFunc, imageFunc, bundleTs),
+  parallel(compileEjs, compileSass, imageFunc, bundleTs),
   series(buildServer, watchFiles)
 );
