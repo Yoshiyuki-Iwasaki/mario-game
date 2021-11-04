@@ -1,0 +1,17 @@
+<% const baseMeta = { ttl: 'ページタイトル', desc: 'ディスクリプション',
+keywords: 'キーワード' , url: 'http://localhost:8080/', pageName: 'top', path:
+'.' }; %>
+
+<!DOCTYPE html>
+<html lang="ja" onclick="jump();">
+  <%- include('./_inc/head', {baseMeta: baseMeta}); %>
+
+  <body>
+    <main role="main">
+      <div id="game">
+        <div id="character"></div>
+        <div id="block"></div>
+      </div>
+    </main>
+  </body>
+</html>
