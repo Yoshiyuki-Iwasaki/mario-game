@@ -3,7 +3,7 @@ keywords: 'キーワード' , url: 'http://localhost:8080/', pageName: 'top', pa
 '.' }; %>
 
 <!DOCTYPE html>
-<html lang="ja" onclick="jump();">
+<html lang="ja">
   <%- include('./_inc/head', {baseMeta: baseMeta}); %>
 
   <body>
@@ -13,5 +13,6 @@ keywords: 'キーワード' , url: 'http://localhost:8080/', pageName: 'top', pa
         <div id="block"></div>
       </div>
     </main>
+    <%- include('./_inc/footer', {baseMeta: baseMeta}); %>
   </body>
 </html>
